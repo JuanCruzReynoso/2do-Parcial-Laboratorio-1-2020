@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1595794865 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Vuelos.h"
+	"Pilotos.h"
+	"parser.h"
+	"myGets.h"
+
+1595795042 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\linkedlist.h
+
+1595730650 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\vuelos.h
+
+1595730650 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\pilotos.h
+
+1595292365 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\parser.h
+
+1593918122 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\mygets.h
+
+1595795029 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1595730650 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Vuelos.h"
+	"Pilotos.h"
+	"myMenu.h"
+	"myGets.h"
+
+1595727636 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\controller.h
+
+1594589125 c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\mymenu.h
+
+1595728556 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Vuelos.h"
+	"Pilotos.h"
+	"parser.h"
+
+1595730658 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\pilotos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Pilotos.h"
+
+1595730876 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\vuelos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Vuelos.h"
+
+1595548767 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\mygets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"myGets.h"
+
+1595727636 source:c:\users\chilloutket\desktop\parcial laboratorio\2dor-parcial-laboratorio-2020\mymenu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"myMenu.h"
+	"myGets.h"
+
