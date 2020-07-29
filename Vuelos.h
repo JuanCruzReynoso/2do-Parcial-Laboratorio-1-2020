@@ -10,7 +10,8 @@ typedef struct
     int cantPasajeros;
     int horaDespegue;
     int horaLlegada;
-}Vuelo;
+    int importeTotal;
+} Vuelo;
 
 Vuelo* vuelo_new();
 Vuelo* vuelo_newParametros(char* idVueloStr,char* idAvionStr,char* idPilotoStr,char* fecha,char* destinoStr,char* cantPasajerosStr,char* horaDespegueStr,char* horaLlegadaStr);
@@ -48,7 +49,10 @@ int vuelo_filterPortugal(void* pElement);
 int vuelo_filterAlexLifeson(void* pElement);
 int vuelo_filterPiloto(void* pElement, int idPiloto);
 
+int vuelo_setImporteTotal(Vuelo* this,int importeTotal);
+int vuelo_getImporteTotal(Vuelo* this,int* importeTotal);
 
+void* vuelo_criterioImporteFinal(void* pElemento);
 
 
 #endif // VUELOS_H_INCLUDED

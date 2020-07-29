@@ -58,4 +58,5 @@ int ll_count(LinkedList* this, int (*fn)(void* element));
 LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element));
 LinkedList* ll_filter_parametro(LinkedList* this, int (*fn)(void* element, char* str), char* str);
 LinkedList* ll_filter_parametroInt(LinkedList* this, int (*fn)(void* element, int str), int numero);
+LinkedList* ll_map (LinkedList* this, void*(*pFunc)(void* element));
 

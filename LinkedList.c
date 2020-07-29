@@ -730,3 +730,28 @@ LinkedList* ll_filter_parametroInt(LinkedList* this, int (*fn)(void* element, in
 
     return listadoFilter;
 }
+
+LinkedList* ll_map (LinkedList* this, void*(*pFunc)(void* element))
+{
+    int i;
+    int size;
+
+    void* pElement;
+    LinkedList* listadoMap = ll_newLinkedList();
+
+    if(this!=NULL && (!ll_isEmpty(this)) && listadoMap!=NULL && pFunc !=NULL)
+    {
+        size = ll_len(this);
+
+        for(i=0; i<size; i++)
+        {
+            pElement = ll_get(this,i);
+
+            pElement = pFunc(pElement);
+
+            ll_add(listadoMap,pElement);
+        }
+    }
+
+    return listadoMap;
+}

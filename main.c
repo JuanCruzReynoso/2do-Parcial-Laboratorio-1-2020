@@ -28,6 +28,9 @@ int main()
     int retornoListPilotoFilter;
     int retornoListVuelosPilotoFilter;
 
+    int retornoListMap;
+    int retornoSaveMap;
+
     do
     {
         opcion = menu();
@@ -163,6 +166,29 @@ int main()
             }
             break;
         case 10:
+            retornoListMap = controller_Reynoso_listMap(listadoVuelos);
+            retornoSaveMap = controller_Reynoso_saveAsTextVuelosMod("vuelosMod.csv",listadoVuelos);
+
+            if(retornoListMap == 1)
+            {
+                printf("\nMostrando lista.\n\n");
+            }
+            else
+            {
+                printf("\nError al mostrar lista.\n\n");
+            }
+
+            if(retornoSaveMap == 1)
+            {
+                printf("\nEl archivo  ha sido guardado exitosamente(vuelosMap).\n\n");
+
+            }
+            else
+            {
+                printf("\nError al guardar el archivo(vuelosMap).\n\n");
+            }
+            break;
+        case 11:
             printf("\nCerrando...\n");
             break;
         default:
@@ -173,7 +199,7 @@ int main()
         system("pause");
         system("cls");
     }
-    while(opcion != 10);
+    while(opcion != 11);
 
     return 0;
 }

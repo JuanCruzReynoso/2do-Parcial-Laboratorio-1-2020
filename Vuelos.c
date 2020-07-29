@@ -372,3 +372,55 @@ int vuelo_filterPiloto(void* pElement, int idPiloto)
     }
     return retorno;
 }
+
+int vuelo_setImporteTotal(Vuelo* this,int importeTotal)
+{
+    int retorno = 0;
+
+    if(this != NULL)
+    {
+        this->importeTotal = importeTotal;
+        retorno = 1;
+    }
+
+    return retorno;
+}
+int vuelo_getImporteTotal(Vuelo* this,int* importeTotal)
+{
+    int retorno = 0;
+
+    if(this!=NULL)
+    {
+        *importeTotal = this->importeTotal;
+        retorno = 1;
+    }
+
+    return retorno;
+}
+
+void* vuelo_criterioImporteFinal(void* pElemento)
+{
+    int auxImporteTotal;
+    char auxDestino[100];
+    int auxCantPasajeros;
+
+
+    if(pElemento!=NULL)
+    {
+        vuelo_getDestino(pElemento,auxDestino);
+        vuelo_getCantPasajeros(pElemento,&auxCantPasajeros);
+
+        if(strcmpi(auxDestino, "Portugal") == 0)
+        {
+            auxImporteTotal = auxCantPasajeros * 1000;
+        }
+        else
+        {
+            auxImporteTotal = auxCantPasajeros * 1500;
+        }
+
+        vuelo_setImporteTotal(pElemento,auxImporteTotal);
+    }
+
+    return pElemento;
+}

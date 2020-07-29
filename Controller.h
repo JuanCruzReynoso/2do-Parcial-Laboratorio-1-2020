@@ -14,4 +14,7 @@ int controller_Reynoso_listPilotos(LinkedList* pListadoPilotos);
 int controller_Reynoso_listPilotosFilter(LinkedList* pListadoPilotos);
 int controller_Reynoso_listVuelosPilotoFilter(LinkedList* pListadoVuelos, LinkedList* pListadoPilotos);
 
+int controller_Reynoso_listVuelosMod(LinkedList* pListadoVuelos);
+int controller_Reynoso_listMap(LinkedList* pListadoVuelos);
+int controller_Reynoso_saveAsTextVuelosMod(char* path, LinkedList* pListadoVuelos);
 #endif // CONTROLLER_H_INCLUDED

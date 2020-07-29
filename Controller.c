@@ -60,7 +60,7 @@ int controller_Reynoso_listVuelos(LinkedList* pListadoVuelos, LinkedList* pLista
     int size;
     int retorno = 0;
 
-    if(pListadoVuelos != NULL && pListadoPilotos != NULL)
+    if(pListadoVuelos != NULL && pListadoPilotos != NULL && ll_len(pListadoVuelos)>0)
     {
         size = ll_len(pListadoVuelos);
 
@@ -360,28 +360,173 @@ int controller_Reynoso_listVuelosPilotoFilter(LinkedList* pListadoVuelos, Linked
     if(pListadoVuelos!=NULL && pListadoPilotos != NULL && ll_len(pListadoPilotos) > 0 && listadoVuelosPiloto!=NULL)
     {
 
-    controller_Reynoso_listPilotos(pListadoPilotos);
+        controller_Reynoso_listPilotos(pListadoPilotos);
 
-    do
-    {
-        getString("\nIngrese nombre de piloto a filtrar: ",auxNombre);
-    }
-    while(isOnlyLetters(auxNombre)==0);
+        do
+        {
+            getString("\nIngrese nombre de piloto a filtrar: ",auxNombre);
+        }
+        while(isOnlyLetters(auxNombre)==0);
 
-    auxId = piloto_getIdByNombre(pListadoPilotos,auxNombre);
+        auxId = piloto_getIdByNombre(pListadoPilotos,auxNombre);
 
-    if(auxId >= 0 && auxId <= 5)
-    {
-        listadoVuelosPiloto = ll_filter_parametroInt(pListadoVuelos, vuelo_filterPiloto, auxId);
-        controller_Reynoso_listVuelos(listadoVuelosPiloto,pListadoPilotos);
-    }
-    else
-    {
-        printf("\nNo se ha filtrado ningun piloto, nombre inexistente o no asignado a ningun vuelo\n");
-    }
-    retorno = 1;
+        if(auxId >= 0 && auxId <= 5)
+        {
+            listadoVuelosPiloto = ll_filter_parametroInt(pListadoVuelos, vuelo_filterPiloto, auxId);
+            controller_Reynoso_listVuelos(listadoVuelosPiloto,pListadoPilotos);
+        }
+        else
+        {
+            printf("\nNo se ha filtrado ningun piloto, nombre inexistente o no asignado a ningun vuelo\n");
+        }
+        retorno = 1;
     }
     ll_deleteLinkedList(listadoVuelosPiloto);
+
+    return retorno;
+}
+
+int controller_Reynoso_listVuelosMod(LinkedList* pListadoVuelos)
+{
+    Vuelo* pVuelo;
+
+    int auxIdVuelo;
+    int auxIdAvion;
+    int auxIdPiloto;
+    char auxFecha[100];
+    char auxDestino[100];
+    int auxCantPasajeros;
+    int auxHoraDespegue;
+    int auxHoraLlegada;
+    int auxImporteTotal;
+
+    int i;
+    int size;
+    int retorno = 0;
+
+    if(pListadoVuelos != NULL)
+    {
+        size = ll_len(pListadoVuelos);
+
+        printf("\n idVuelo: idAvion: idPiloto:\t fecha:\t    destino:\t    cantPasajeros:  horaDespegue:   horaLlegada:  importeTotal:");
+
+        for(i=0; i<size; i++)
+        {
+            pVuelo = ll_get(pListadoVuelos, i);
+
+            vuelo_getIdVuelo(pVuelo,&auxIdVuelo);
+            vuelo_getIdAvion(pVuelo,&auxIdAvion);
+            vuelo_getIdPiloto(pVuelo,&auxIdPiloto);
+            vuelo_getFecha(pVuelo,auxFecha);
+            vuelo_getDestino(pVuelo,auxDestino);
+            vuelo_getCantPasajeros(pVuelo,&auxCantPasajeros);
+            vuelo_getHoraDespegue(pVuelo,&auxHoraDespegue);
+            vuelo_getHoraLlegada(pVuelo,&auxHoraLlegada);
+            vuelo_getImporteTotal(pVuelo,&auxImporteTotal);
+
+            printf("\n%8d %8d %8d %12s %12s %21d %14d %14d %14d",auxIdVuelo,auxIdAvion,auxIdPiloto,auxFecha,auxDestino,auxCantPasajeros,auxHoraDespegue,auxHoraLlegada,auxImporteTotal);
+
+        }
+
+        retorno = 1;
+    }
+
+    return retorno;
+}
+
+int controller_Reynoso_listMap(LinkedList* pListadoVuelos)
+{
+    LinkedList* listadoVuelosPortugalMap = ll_newLinkedList();
+
+    int retorno=0;
+
+    listadoVuelosPortugalMap = ll_map(pListadoVuelos,vuelo_criterioImporteFinal);
+    listadoVuelosPortugalMap = ll_filter(pListadoVuelos,vuelo_filterPortugal);
+
+    if(listadoVuelosPortugalMap!=NULL && ll_len(listadoVuelosPortugalMap)>0)
+    {
+        controller_Reynoso_listVuelosMod(listadoVuelosPortugalMap);
+        retorno = 1;
+    }
+
+    ll_deleteLinkedList(listadoVuelosPortugalMap);
+
+    return retorno;
+}
+
+int controller_Reynoso_saveAsTextVuelosMod(char* path, LinkedList* pListadoVuelos)
+{
+    FILE* pArchivo;
+    Vuelo* pVuelo;
+
+    int* auxIdVuelo;
+    int* auxIdAvion;
+    int* auxIdPiloto;
+    char* auxFecha;
+    char* auxDestino;
+    int* auxCantPasajeros;
+    int* auxHoraDespegue;
+    int* auxHoraLlegada;
+    int* auxImporteTotal;
+
+    int i;
+    int size;
+    int retorno = 0;
+
+    if(path != NULL && pListadoVuelos != NULL)
+    {
+        LinkedList* listadoMap = ll_newLinkedList();
+
+        listadoMap = ll_filter(pListadoVuelos,vuelo_filterPortugal);
+
+        auxIdVuelo = malloc(sizeof(int));
+        auxIdAvion = malloc(sizeof(int));
+        auxIdPiloto = malloc(sizeof(int));
+        auxFecha = malloc(sizeof(char)*100);
+        auxDestino = malloc(sizeof(char)*100);
+        auxCantPasajeros = malloc(sizeof(int));
+        auxHoraDespegue = malloc(sizeof(int));
+        auxHoraLlegada = malloc(sizeof(int));
+        auxImporteTotal = malloc(sizeof(int));
+
+        size = ll_len(listadoMap);
+
+        pArchivo = fopen(path, "w");
+        fprintf(pArchivo, "idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada,importeTotal\n");
+
+        for(i=0; i < size; i++)
+        {
+            pVuelo = ll_get(listadoMap, i);
+
+            vuelo_getIdVuelo(pVuelo, auxIdVuelo);
+            vuelo_getIdAvion(pVuelo, auxIdAvion);
+            vuelo_getIdPiloto(pVuelo, auxIdPiloto);
+            vuelo_getFecha(pVuelo, auxFecha);
+            vuelo_getDestino(pVuelo, auxDestino);
+            vuelo_getCantPasajeros(pVuelo, auxCantPasajeros);
+            vuelo_getHoraDespegue(pVuelo, auxHoraDespegue);
+            vuelo_getHoraLlegada(pVuelo, auxHoraLlegada);
+            vuelo_getImporteTotal(pVuelo, auxImporteTotal);
+
+            fprintf(pArchivo, "%d,%d,%d,%s,%s,%d,%d,%d,%d\n", *auxIdVuelo, *auxIdAvion, *auxIdPiloto, auxFecha, auxDestino, *auxCantPasajeros, *auxHoraDespegue, *auxHoraLlegada, *auxImporteTotal);
+        }
+
+        free(auxIdVuelo);
+        free(auxIdAvion);
+        free(auxIdPiloto);
+        free(auxFecha);
+        free(auxDestino);
+        free(auxCantPasajeros);
+        free(auxHoraDespegue);
+        free(auxHoraLlegada);
+        free(auxImporteTotal);
+
+        fclose(pArchivo);
+
+        ll_deleteLinkedList(listadoMap);
+
+        retorno = 1;
+    }
 
     return retorno;
 }

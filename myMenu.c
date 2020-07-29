@@ -17,7 +17,8 @@ int menu()
     printf("\n7- Filtrar a Alex Lifeson."); ///Necesitamos un listado de vuelos que no incluya al chofer Alex Lifeson
     printf("\n8- Filtrar por nombre del piloto(Excluir)(pilotos)."); ///Necesitamos una lista de pilotos donde NO incluya al piloto que ingresamos por teclado( informar si el piloto ingresado no existe).
     printf("\n9- Filtrar por nombre del piloto(Incluir)(vuelos)."); ///Necesitamos una lista de vuelos donde SOLO incluya al piloto que ingresamos por teclado( informar si el piloto ingresado no existe).
-    printf("\n10- Salir.");
+    printf("\n10- Listar y guardar vuelos a portugal map.");
+    printf("\n11- Salir.");
     opcion = getInt("\nIngrese una opcion: ");
 
     return opcion;

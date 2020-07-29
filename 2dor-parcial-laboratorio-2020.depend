@@ -75,3 +75,79 @@
 	"myMenu.h"
 	"myGets.h"
 
+1595548767 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\mygets.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"myGets.h"
+
+1593918122 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\mygets.h
+
+1595728556 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Vuelos.h"
+	"Pilotos.h"
+	"parser.h"
+
+1596029680 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\linkedlist.h
+
+1596031009 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\vuelos.h
+
+1595730650 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\pilotos.h
+
+1595292365 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\parser.h
+
+1595730658 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\pilotos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Pilotos.h"
+
+1596030949 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\vuelos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Vuelos.h"
+
+1596031009 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Vuelos.h"
+	"Pilotos.h"
+	"myMenu.h"
+	"myGets.h"
+
+1596029589 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\controller.h
+
+1594589125 c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\mymenu.h
+
+1596029798 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\mymenu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"myMenu.h"
+	"myGets.h"
+
+1596031502 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Vuelos.h"
+	"Pilotos.h"
+	"parser.h"
+	"myGets.h"
+
+1596029823 source:c:\users\chilloutket\desktop\parcial laboratorio\2do-parcial-laboratorio-2020\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
